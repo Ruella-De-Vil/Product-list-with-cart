@@ -1,26 +1,48 @@
+/*- Red: hsl(14, 86%, 42%)   price, your cart
+- Green: hsl(159, 69%, 38%)
+
+- Rose 100: hsl(13, 31%, 94%)
+- Rose 300: hsl(14, 25%, 72%)
+- Rose 400: hsl(7, 20%, 60%)
+- Rose 500: hsl(12, 20%, 44%)
+- Rose 900: hsl(14, 65%, 9%)  your items will appear here
+
+- Weights: 400, 600, 700
+
+*/
+
+
 body {
-    outline: black solid 0.2em;
+    background-color: #fcf9f7; /* rose 50 */
+    font-family: "Outfit", serif;
+    font-optical-sizing: auto;
+    font-style: normal;
     width: 1200px;
     height: auto;
-    margin: 6em auto;
+    margin: 4em auto 0;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
 }
 
+h1 {
+    font-size: 2.5rem;
+    margin-left: 0.5em;
+    margin-bottom: 1em;
+    font-weight: 700;
+}
+
+p {
+    font-size: 1rem;
+}
+
 .dessert-list {
-    outline: black solid 0.2em;
-    width: 880px;
-    height: 1000px;
+    width: 840px;
 }
 
 .dessert-grid {
-    outline: black solid 0.2em;
-    padding: 1em;
-    width: 96%;
-    height: 90%;
+    width: 840px;
     display: grid;
-    gap: 1em;
     grid-template-areas: 
     "d-1 d-2 d-3"
     "d-4 d-5 d-6"
@@ -29,8 +51,58 @@ body {
 }
 
 article {
-    outline: black solid 0.2em;
+    padding: 0 0.75em;
+    margin: 0 0 1.5em 0;
 }
+
+img {
+    width: 100%;
+    height: auto;
+    border-radius: 1em;
+}
+
+button {
+    display: flex;
+    margin: auto;
+    margin-bottom: -2em;
+    z-index: 5;
+    position: relative;
+    bottom: 2em;
+    width: 11em;
+    height: 3em;
+    border: solid 1px #0000007c;
+    border-radius: 5em;
+    background-color: white;
+    font-size: 16px;
+    font-weight: 700;
+    justify-content: center;
+    align-items: center;
+}
+
+button img {
+    width: 1.75em;
+    margin-right: 0.5em;
+}
+
+article p {
+    line-height: 1.6;
+}
+
+.dessert-type {
+    opacity: 0.6;
+}
+
+.dessert-name {
+    font-weight: 700;
+    font-size: 1.1rem;
+}
+
+.price {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #c73a0f;
+}
+
 
 .d-1 {
     grid-area: d-1;
@@ -69,9 +141,26 @@ article {
 }
 
 .cart {
-    outline: black solid 0.2em;
-    width: 320px;
-    height: 250px;
-    margin-top: 0;
-    margin-right: 0;
+    background-color: white;
+    width: 340px;
+    height: 300px;
+    margin: 0 0 1em 1em;
+    padding: 0 1em;
+    border-radius: 1em;
+}
+
+h2 {
+    color: #c73a0f;
+    font-size: 1.8rem;
+}
+
+.cart img {
+    width: 45%;
+    display: block;
+    margin:  0 auto;
+}
+
+.cart p {
+    justify-self: center;
+    color: #260f08;
 }
