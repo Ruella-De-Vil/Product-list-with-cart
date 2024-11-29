@@ -180,12 +180,30 @@ updateCartFooter();
         if (e.target && e.target.classList.contains('remove-items')) {
             // 1. Get the cart item and its name
             const cartItem = e.target.closest('.cart-item');
-            
+
             // 2. Remove the item from cart
             cartItem.remove();
 
-            element.innerHTML = `<span class="add-to-cart">Add to Cart`;
-            element.classList.remove('transformed');
+            //.3 Restore original state
+            const itemName = cartItem.querySelector('.cart-item-name').textContent;
+            console.log(itemName);
+
+            let element;
+            document.querySelectorAll('.dessert-name').forEach(el => {
+            if (el.textContent === itemName) {
+            element = el;
+        }
+        });console.log(element);
+
+            const restorebtn = element.closest('article').querySelector('button');  
+            console.log(restorebtn);
+            restorebtn.innerHTML = `<span class="button-return"><img src="assets/icon-add-to-cart.svg"/>Add to Cart</span>`;
+            restorebtn.classList.remove('transformed');
+            restorebtn.classList.add('button-returned');
+            
+            const elementImage = element.closest('article').querySelector('.item-image');
+            elementImage.classList.remove('highlight-item');
+
             
             // 4. Check if cart is empty and reset if needed
             const remainingItems = document.querySelectorAll('.cart-item');
@@ -198,8 +216,6 @@ updateCartFooter();
                     <img src="assets/illustration-empty-cart.svg"/>
                     <p>Your added items will appear here</p>
                 `;
-
-                selectedImage.classList.remove('highlight-item');
 
 
             updateCartFooter();
@@ -217,5 +233,82 @@ updateCartFooter();
         }
     });
 };
+
+// First, remove any existing event listener
+const confirmBtn = document.querySelector('.confirm-order-btn');
+const oldConfirmBtn = confirmBtn.cloneNode(true); 
+confirmBtn.parentNode.replaceChild(oldConfirmBtn, confirmBtn);
+
+document.querySelector('.confirm-order-btn').addEventListener('click', function() {
+    const modalConfirmedOrder = document.querySelector('.modal-confirmed-order');
+    const cartItems = document.querySelectorAll('.cart-item');
+    const totalAmount = document.querySelector('.total-amount').textContent;
+    
+
+    // Clear existing content first
+    modalConfirmedOrder.innerHTML = '';
+
+    // Create document fragment for better performance
+    const fragment = document.createDocumentFragment();
+    
+    // Copy each cart item to the modal
+    cartItems.forEach(item => {
+         const cartItemDiv = document.createElement('div');
+
+         //Object for dessert thumbnails
+    const dessertThumbnails = {
+        "Pistachio Baklava": "assets/image-baklava-thumbnail.jpg",
+        "Waffle with Berries": "assets/image-waffle-thumbnail.jpg",
+        "Vanilla Bean Crème Brûlée": "assets/image-creme-brulee-thumbnail.jpg",
+        "Macaron Mix of Five": "assets/image-macaron-thumbnail.jpg",
+        "Classic Tiramisu": "assets/image-tiramisu-thumbnail.jpg",
+        "Lemon Meringue Pie": "assets/image-meringue-thumbnail.jpg",
+        "Red Velvet Cake": "assets/image-cake-thumbnail.jpg",
+        "Salted Caramel Brownie": "assets/image-brownie-thumbnail.jpg",
+        "Vanilla Panna Cotta": "assets/image-panna-cotta-thumbnail.jpg"
+    }; 
+
+    // Get the corresponding image for this dessert
+    const dessertThumbnail = dessertThumbnails[item.querySelector('.cart-item-name').textContent];
+
+         cartItemDiv.className = 'cart-item';
+         cartItemDiv.innerHTML = `
+             <div class="cart-item-details">
+                 <img class="cart-item-thumbnail" src="${dessertThumbnail}" alt="${item.querySelector('.cart-item-name').textContent}">
+                 <span class="items">
+                    <h3 class="cart-item-name">${item.querySelector('.cart-item-name').textContent}</h3>
+                    <span class="cart-item-quantity">${item.querySelector('.cart-item-quantity').textContent}</span>
+                    <span class="cart-item-price">${item.querySelector('.cart-item-price').textContent}</span>
+                    <span class="total-item-amount">${item.querySelector('.total-item-amount').textContent}</span>
+                    <hr/>
+                 </span>
+             </div>
+         `;
+         fragment.appendChild(cartItemDiv);
+     });
+ 
+     // Add total amount
+     const totalDiv = document.createElement('div');
+     totalDiv.className = 'modal-total';
+     totalDiv.innerHTML = `<p>Order Total: <strong>${totalAmount}</strong</p>`;
+     fragment.appendChild(totalDiv);
+ 
+     // Append all content at once
+     modalConfirmedOrder.appendChild(fragment);
+ 
+     // Show the modal
+     document.getElementById('confirmationModal').style.display = 'flex';
+ });
+
+    const closeModal = document.querySelector('.close-modal');
+    closeModal.addEventListener('click', function() {
+    // First hide the modal
+     document.getElementById('confirmationModal').style.display = 'none';
+    // Clear the cart contents
+    document.querySelector('.modal-confirmed-order').innerHTML = null;
+    // Then reload the page
+ window.location.reload();
+});
+ 
 }
 

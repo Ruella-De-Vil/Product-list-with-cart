@@ -19,7 +19,7 @@ body {
     font-style: normal;
     width: 1200px;
     height: auto;
-    margin: 4em auto 0;
+    margin: 4em 5em 0 5em;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -239,6 +239,7 @@ h2 {
     width: 45%;
     display: block;
     margin:  0 auto;
+    border: none;
 }
 
 .highlight-item {
@@ -256,6 +257,10 @@ h2 {
 
 .cart-item-details {
     margin: -0.5em 0;
+}
+
+.cart-item-name {
+    color: #837a7a;
 }
 
 hr {
@@ -338,4 +343,145 @@ hr {
 .confirm button:hover {
     background-color: #922808;
     border: #922808 solid 1px;
+}
+
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+}
+
+.modal-content {
+    border-radius: 10em;
+    background: #fff;
+    border-radius: 1em;
+    margin: auto;
+    position: relative;
+    width: 34em;
+    height: auto;
+    padding: 2.5em;
+    display: flex;
+    flex-direction: column;
+}
+
+.modal-content svg {
+    width: 3.5em;
+    margin: 0 0 1.8em 0.5em;
+}
+
+.modal-content h3 {
+    font-size: 2.75rem;
+    padding: 0;
+    margin: 0 0 0 0.3em ;
+}
+
+.modal-content p {
+    font-size: 1.1rem;
+    padding: 0;
+    margin: 0.35em 0 1.2em 0.8em;
+    color: #0000006c;
+}
+
+
+.modal-content img {
+    width: 3.5em;
+    height: 3.5em;
+    margin-right: 1em;
+}
+
+.modal-content .cart-item-details {
+    display: flex;
+    flex-direction: row;
+    margin-top: -3em;
+    margin-bottom: 5.5em;
+    align-items: center;
+}
+
+.modal-content .items {
+    width: 80%;
+}
+
+.modal-content .cart-item-details h3 {
+    font-size: 1rem;
+    color: #2c0e0ec7;
+    margin-bottom: 0.75em;
+}
+
+.modal-content .cart-item-quantity, .cart-item-price {
+    margin-left: 0.25em;
+    margin-right: 0.5em;
+}
+
+.modal-content .total-item-amount {
+    position: relative;
+    top: -0.5em;
+    right: -13.75em;
+    font-size: 1.15rem;
+}
+
+.modal-content hr {
+    margin-top: -0.5em;
+    margin-bottom: 1em;
+    border: #6e55550e solid 1px;
+}
+
+.modal-total {
+    margin-top: -3em;
+    margin-left: -0.5em;
+    margin-bottom: -1em;
+}
+
+.modal-total strong {
+    margin-left: 13em;
+    color: #000000;
+    font-size: 1.2em;
+}
+
+.close-modal {
+    margin: auto;
+    margin-bottom: -1.5em;
+    width: 30em;
+    height: 3em;
+    background-color: #c73a0f;
+    color: white;
+    border: none;
+    font-weight: 100;
+    letter-spacing: 0.15em;
+}
+
+.modal-confirmed-order {
+    background-color: rgb(250, 246, 245);
+    padding: 1.5em;
+    border-radius: 0.5em;
+    max-height: 300px; /* Fixed height for scroll area */
+    overflow-y: auto; /* Enable vertical scrolling */
+    margin: 1em 0.5em;
+    margin-bottom: 5em;
+    padding-right: 10px; /* Add some padding for the scrollbar */
+}
+
+/* Style the scrollbar (for webkit browsers) */
+.modal-confirmed-order::-webkit-scrollbar {
+    width: 8px;
+}
+
+.modal-confirmed-order::-webkit-scrollbar-track {
+    background: #f1f1f1;
+    border-radius: 4px;
+}
+
+.modal-confirmed-order::-webkit-scrollbar-thumb {
+    background: #888;
+    border-radius: 4px;
+}
+
+.modal-confirmed-order::-webkit-scrollbar-thumb:hover {
+    background: #555;
 }
