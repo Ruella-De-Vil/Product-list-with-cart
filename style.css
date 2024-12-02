@@ -19,7 +19,10 @@ body {
     font-style: normal;
     width: 1200px;
     height: auto;
-    margin: 4em 5em 0 5em;
+    margin-top: 4em;
+    padding-right: 5em;
+    align-self: center;
+    justify-self: center;
     display: flex;
     flex-direction: row;
     justify-content: space-between;
@@ -485,3 +488,181 @@ hr {
 .modal-confirmed-order::-webkit-scrollbar-thumb:hover {
     background: #555;
 }
+
+
+/* @media screen and (max-width: ...) {} - Typically used in desktop-first approach. Think of it as "from this width and down". Styles apply when the screen width is LESS than or equal to the specified value.
+
+  @media screen and (min-width: ...) {} - Typically used in mobile-first approach. Think of it as "from this width and up". Styles apply when the screen width is GREATER than or equal to the specified value. 
+
+  */
+
+  @media screen and (max-width: 1440px) {
+    body {
+        margin: auto;
+        padding: 4em 3em 3em 3em;
+
+    }
+    
+    .dessert-list {
+        width: 54em;
+    }
+    
+    .dessert-grid {
+        width: 54em;
+    }
+
+    .cart {
+        width: 20em;
+    }
+  } /* larger desktop */ 
+
+@media screen and (max-width: 1024px) {
+    /*No changes, responsive */
+} /* desktop */
+
+@media screen and (max-width: 768px) {
+    /*Responsive but images to change*/
+} /* tablet */
+
+@media screen and (max-width: 425px) {
+    body {
+     width: unset;
+     padding: 0;
+     margin: auto;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+     align-items: center;
+    }
+
+    h1 {
+        margin: 0.5em;
+    }
+
+    p {
+        padding: 0;
+        margin: 0;
+    }
+
+    .dessert-type, .dessert-name, .currency, .price {
+        font-size: 1.2rem;
+    }
+    
+    .dessert-list {
+        width: unset;
+        margin: unset;
+        padding-left: 0.5em ;
+    }
+
+    .dessert-grid {
+     width: unset;
+     margin: unset;
+     padding: 0;
+     display: flex;
+     flex-direction: column;
+     justify-content: center;
+    }
+
+    .item-image {
+        width: 23em;
+    }
+
+    .cart {
+        width: 24em;
+        margin: auto;
+        margin-bottom: 0;
+        padding: 0.5em 1.2em;
+    }
+       
+    .confirm {
+        width: 22em;
+        margin: 1.5em 2em 2em 2em;
+        padding: 1em 2em 2em 2em;
+    }
+    
+    .modal-content {
+        position: fixed;
+        bottom: 0;
+        width: 90%;
+        max-height: 70%;
+    }
+
+    .modal-content .total-item-amount {
+        position: relative;
+        top: -0.5em;
+        right: -6.75em;
+        font-size: 1.15rem;
+    }
+    
+    .modal-total strong {
+        margin-left: 6.5em;
+        color: #000000;
+        font-size: 1.2em;
+    }
+    
+    .close-modal {
+        margin: 0 1em -1.5em 1em;
+        justify-self: center;
+        align-self: center;
+        width: 23em;
+        height: 3.5em
+    }
+} /* large mobile */
+
+@media screen and (max-width: 375px) {
+
+    
+    .dessert-list {
+        width: unset;
+        margin: unset;
+        padding-left: 0.7em;
+    }
+
+    .cart {
+        width: 22em;
+        margin: auto;
+        margin-right: 0.75em;
+        padding: 0.5em 1em;
+        position: relative;
+        left: 0.3em
+    }
+       
+    .confirm {
+        width: 22em;
+        margin: 0.5em;
+        padding: 1em;
+    }
+    
+    .modal-content {
+        position: fixed;
+        bottom: 0;
+        width: 90%;
+        max-height: 70%;
+    }
+
+    .modal-content .total-item-amount {
+        position: relative;
+        top: -0.5em;
+        right: -5em;
+        font-size: 1.15rem;
+    }
+    
+    .modal-total strong {
+        margin-left: 5em;
+        color: #000000;
+        font-size: 1.2em;
+    }
+    
+    .close-modal {
+        margin: 0 1em -1.5em 1em;
+        justify-self: center;
+        align-self: center;
+        width: 23em;
+        height: 3.5em
+    }
+}
+
+/* otherwise if this were a mobile first approach then one for mobile wouldn't  be needed, but one for large desktops would be needed. *here the original css was created for  1440px width and greater.
+
+If mobile first approach then larger desktops:
+@media and screen (min-width: 1280px or 1440px) {} */
