@@ -521,7 +521,41 @@ hr {
 } /* desktop */
 
 @media screen and (max-width: 768px) {
-    /*Responsive but images to change*/
+    .d-1 .item-image {
+        content: url(assets/image-waffle-tablet.jpg);
+    }
+
+    .d-2 .item-image {
+        content: url(assets/image-creme-brulee-tablet.jpg);
+    }
+
+    .d-3 .item-image {
+        content: url(assets/image-macaron-tablet.jpg);
+    }
+
+    .d-4 .item-image {
+        content: url(assets/image-tiramisu-tablet.jpg);
+    }
+
+    .d-5 .item-image {
+        content: url(assets/image-baklava-tablet.jpg);
+    }
+
+    .d-6 .item-image {
+        content: url(assets/image-meringue-tablet.jpg);
+    }
+
+    .d-7 .item-image {
+        content: url(assets/image-cake-tablet.jpg);
+    }
+
+    .d-8 .item-image {
+        content: url(assets/image-brownie-tablet.jpg);
+    }
+
+    .d-9 .item-image {
+        content: url(assets/image-panna-cotta-tablet.jpg);
+    }
 } /* tablet */
 
 @media screen and (max-width: 425px) {
@@ -606,6 +640,42 @@ hr {
         align-self: center;
         width: 23em;
         height: 3.5em
+    }
+
+    .d-1 .item-image {
+        content: url(assets/image-waffle-mobile.jpg);
+    }
+
+    .d-2 .item-image {
+        content: url(assets/image-creme-brulee-mobile.jpg);
+    }
+
+    .d-3 .item-image {
+        content: url(assets/image-macaron-mobile.jpg);
+    }
+
+    .d-4 .item-image {
+        content: url(assets/image-tiramisu-mobile.jpg);
+    }
+
+    .d-5 .item-image {
+        content: url(assets/image-baklava-mobile.jpg);
+    }
+
+    .d-6 .item-image {
+        content: url(assets/image-meringue-mobile.jpg);
+    }
+
+    .d-7 .item-image {
+        content: url(assets/image-cake-mobile.jpg);
+    }
+
+    .d-8 .item-image {
+        content: url(assets/image-brownie-mobile.jpg);
+    }
+
+    .d-9 .item-image {
+        content: url(assets/image-panna-cotta-mobile.jpg);
     }
 } /* large mobile */
 
